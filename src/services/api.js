@@ -3,7 +3,8 @@ const searchUrl = 'https://chicken-coop.p.rapidapi.com/games?title='
 const authKey = 'b21a8293f1msh88f3209dd1d74e5p152e77jsncc9541ad4c29'
 
 const getSingleGame = gameName  => {
-    return fetch(detailsUrl + gameName + "?platform=pc", {
+    let fixedGameName = gameName.replace(/\s/g, '+')
+    return fetch(detailsUrl + fixedGameName + "?platform=pc", {
         headers: {
           "X-Rapidapi-Host": "chicken-coop.p.rapidapi.com",
           "X-Rapidapi-Key": authKey
@@ -12,7 +13,8 @@ const getSingleGame = gameName  => {
 }
 
 const searchForGame = searchTerm  => {
-    return fetch(searchUrl + searchTerm , {
+    let fixedSearchTerm = searchTerm.replace(/\s/g, '%20')
+    return fetch(searchUrl + fixedSearchTerm , {
         headers: {
             "X-Rapidapi-Host": "chicken-coop.p.rapidapi.com",
             "X-Rapidapi-Key": authKey
