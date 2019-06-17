@@ -13,16 +13,12 @@ class GameIndex extends React.Component {
     API.getGames().then(games => this.setState({ games }));
   };
 
-  getAllGamesImages = () => {
-    API.getGamesImages().then(gamesImages => this.setState({ gamesImages }));
-  }
-
   componentDidMount = () => {
     this.getAllGames();
   };
 
   mapAllGames = () => {
-    return this.state.games.map(game => <GameCard key={game.id} game={game} gameImages={this.gamesImages} />);
+    return this.state.games.map(game => <GameCard key={game.id} game={game}/>);
   };
 
   render() {
