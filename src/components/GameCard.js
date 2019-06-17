@@ -1,19 +1,20 @@
 import React from "react";
-// import {Grid} from 'semantic-ui-react'
 import { Card } from "semantic-ui-react";
 
 class GameCard extends React.Component {
   render() {
-    // const { game } = this.props
-
+    const { game } = this.props
+    const GR = game.rating
     return (
       <Card>
-        <img
-          width={250}
-          src="https://i.kym-cdn.com/entries/icons/original/000/016/546/hidethepainharold.jpg"
+        <h1 className="text-center">{game.name}</h1>
+        <img width={290}
+          src="https://media.wired.com/photos/5b2ac221714d3b70d9ed7f87/master/pass/fortnite_switch.jpg"
           alt=""
         />
-        <p>Testing</p>
+        <p>Link to game: {game.url}</p>
+        <p>Rating: {GR ? GR.toFixed(2) : GR}</p>
+        <p>Genres: {game.genres}</p>
       </Card>
     );
   }
