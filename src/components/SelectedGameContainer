@@ -1,0 +1,13 @@
+import React, { Component } from 'react';
+import Feedback from './Feedback';
+
+class SelectedGameContaineer extends Component {
+
+    state = {
+        // ????
+    }
+
+    mapFeedbacks = () => {
+        return this.props.
+    }
+}
