@@ -1,13 +1,13 @@
 import React from 'react';
-import Search from './Search';
-import Filter from './Filter';
+// import Search from './Search';
+// import Filter from './Filter';
 import { Menu } from 'semantic-ui-react';
 
 const Nav = (props) => {
     return (
         <div>
-        <Menu attached='top' inverted>
-
+        <Menu className="fixed-top">
+            Hi this is flume
         </Menu>
         </div>
     )
