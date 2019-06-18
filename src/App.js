@@ -101,7 +101,6 @@ class App extends React.Component {
         />
         <GameIndex
           games={this.applyAllFiltersToGames(this.state.games)}
-          // searchTerm={this.state.searchTerm}
         />
         <br />
         <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
