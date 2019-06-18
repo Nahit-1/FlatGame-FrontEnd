@@ -3,12 +3,6 @@ import { Card } from "semantic-ui-react";
 
 class GameCard extends React.Component {
 
-  mapAndFormatGenres = () => {
-    const genreArray = []
-    this.props.game.genres.map(g => genreArray.push(g.name))
-    return genreArray.join(', ')
-  }
-
   render() {
     const { game } = this.props;
 

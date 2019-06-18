@@ -1,33 +1,20 @@
 import React from "react";
-// import API from "../services/api";
 import GameCard from "./GameCard";
 import { Card } from "semantic-ui-react";
 
-const URL = 'http://localhost:3001'
-const gamesURL = URL + '/games'
-
 class GameIndex extends React.Component {
 
-  componentDidMount() {
-    console.log("game index mounted");
+  mapAllGames = (props) => {
+    if (this.props.searchTerm){
+      props.games.map((game) => {    
+        if (game.name.toLowerCase().includes(props.searchTerm)){
+          (<GameCard key={game.id} game={game}/> )
+        }
+      })
+    }
+    return this.props.games.map( game => <GameCard key={game.id} game={game}/>)
   }
-  state = {
-    games: []
-  };
 
-  getAllGames = () =>
-    fetch(gamesURL)
-    .then(resp => resp.json());
-
-  componentDidMount = () => {
-    this.getAllGames()
-    .then(games => this.setState({ games }));
-  };
-
-
-  mapAllGames = () => {
-    return this.state.games.map(game => <GameCard key={game.id} game={game} />);
-  };
 
   render() {
     return (
