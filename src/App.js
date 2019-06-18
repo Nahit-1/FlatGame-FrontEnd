@@ -33,8 +33,8 @@ class App extends React.Component {
 
   displayGames = () => {
     if (this.state.filterByRating){
-      return this.state.games.filter((s)=> {
-        return s.rating.average >= this.state.filterByRating
+      return this.state.games.filter((game)=> {
+        return game.metacritic >= this.state.filterByRating
       })
     } else {
       return this.state.games
@@ -51,6 +51,7 @@ class App extends React.Component {
       <br />
       <Nav handleFilter={this.handleFilter} handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}/>
       <GameIndex games={this.displayGames()} searchTerm={this.state.searchTerm}/>
+      <br />
       <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
     </div>
     )}
