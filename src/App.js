@@ -17,7 +17,6 @@ class App extends React.Component {
     filterByRating: 0,
     selectedGame: null,
     filterByGenre: ""
-
   };
 
   getAllGames = () => fetch(gamesURL).then(resp => resp.json());
