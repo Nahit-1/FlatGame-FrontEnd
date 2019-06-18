@@ -2,22 +2,22 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 
 class GameCard extends React.Component {
+
   render() {
-    const { game } = this.props
-    const GR = game.rating
+    const { game } = this.props;
+
     return (
       <Card>
-        <h1 className="text-center">{game.name}</h1>
-        <img width={290}
-          src="https://media.wired.com/photos/5b2ac221714d3b70d9ed7f87/master/pass/fortnite_switch.jpg"
-          alt=""
-        />
-        <p>Link to game: {game.url}</p>
-        <p>Rating: {GR ? GR.toFixed(2) : GR}</p>
-        <p>Genres: {game.genres}</p>
+        <div className="text-center" onClick={() => this.props.selectGame(game)}>
+          <h1> {game.name}</h1>
+          <img width={290} src={game.background_image} alt={game.slug} title={game.slug} />
+          <p>Rating: {game.metacritic ? game.metacritic : 'No Rating'}</p>
+          <p>Genre: {game.genre}</p>
+        </div>
       </Card>
     );
   }
 }
 
 export default GameCard;
+
