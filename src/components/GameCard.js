@@ -14,12 +14,11 @@ class GameCard extends React.Component {
 
     return (
       <Card>
-        <div>
-          <h1 className="text-center"> {game.name}</h1>
-          <img width={250} src="" alt="" />
-          <p>Link to game: </p>
-          <p>Rating: {game.rating}</p>
-          <p>Genres: {this.mapAndFormatGenres()}</p>
+        <div className="text-center">
+          <h1> {game.name}</h1>
+          <img width={290} src={game.background_image} alt={game.slug} title={game.slug} />
+          <p>Rating: {game.metacritic ? game.metacritic : 'No Rating'}</p>
+          <p>Genre: {game.genre}</p>
         </div>
       </Card>
     );
