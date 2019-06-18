@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Filter = (props) => {
+const RatingFilter = (props) => {
   return (
     <div>
         <h4> Filter By Rating </h4>
-        <select placeholder="Filter by average rating" onChange={props.handleFilter}>
+        <select placeholder="Filter by average rating" onChange={props.handleRatingFilter}>
         <option>No Filter</option>
         <option value="60">60</option>
         <option value="65">65</option>
@@ -19,4 +19,4 @@ const Filter = (props) => {
   )
 }
 
-export default Filter
+export default RatingFilter

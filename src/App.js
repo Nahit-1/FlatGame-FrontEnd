@@ -27,7 +27,7 @@ class App extends React.Component {
     this.setState({ searchTerm: e.target.value.toLowerCase() })
   }
 
-  handleFilter = (e) => {
+  handleRatingFilter = (e) => {
     e.target.value === "No Filter" ? this.setState({ filterByRating: 0 }) : this.setState({ filterByRating: +e.target.value})
   }
 
@@ -49,7 +49,7 @@ class App extends React.Component {
       <br />
       <br />
       <br />
-      <Nav handleFilter={this.handleFilter} handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}/>
+      <Nav handleFilter={this.handleRatingFilter} handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}/>
       <GameIndex games={this.displayGames()} searchTerm={this.state.searchTerm}/>
       <br />
       <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
