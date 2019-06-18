@@ -4,6 +4,7 @@ import { Card } from "semantic-ui-react";
 
 class GameIndex extends React.Component {
 
+
   render() {
     return (
       <div>
