@@ -36,7 +36,7 @@ class App extends React.Component {
       : this.setState({ filterByGenre: e.target.value });
   };
 
-  filterGamesByRating = (collection) => {
+  filterGamesByRating = collection => {
     if (this.state.filterByRating) {
       return collection.filter(game => {
         return game.metacritic >= this.state.filterByRating;
@@ -46,18 +46,43 @@ class App extends React.Component {
     }
   };
 
-  filterGamesByGenre = (collection) => {
+  filterGamesByGenre = collection => {
+    // debugger;
     if (this.state.filterByGenre) {
-    return collection.filter(game => {
-      return game.genre.toLowerCase() === this.state.filterByGenre
-    })
-  } else {
+      return collection.filter(game => {
+        return game.genre.toLowerCase() === this.state.filterByGenre;
+      });
+    } else {
       return collection;
     }
   };
 
-  applyAllFiltersToGames = (collection) => {
-    return this.filterGamesByGenre(this.filterGamesByRating(collection));
+  filterBySearch = collection => {
+    return collection.filter(game => {
+      if (this.state.searchTerm) {
+        return game.name.toLowerCase().includes(this.state.searchTerm);
+      } else {
+        return true;
+      }
+    });
+    // if (this.state.searchTerm) {
+    //   // debugger;
+    //   return this.state.games.filter(game => {
+    //     if (game.name.toLowerCase().includes(this.state.searchTerm)) {
+    //       return <GameCard key={game.id} game={game} />;
+    //     }
+    //   });
+    // } else {
+    //   return this.state.games.map(game => (
+    //     <GameCard key={game.id} game={game} />
+    //   ));
+    // }
+  };
+
+  applyAllFiltersToGames = collection => {
+    return this.filterBySearch(
+      this.filterGamesByGenre(this.filterGamesByRating(collection))
+    );
   };
 
   render() {
@@ -76,7 +101,7 @@ class App extends React.Component {
         />
         <GameIndex
           games={this.applyAllFiltersToGames(this.state.games)}
-          searchTerm={this.state.searchTerm}
+          // searchTerm={this.state.searchTerm}
         />
         <br />
         <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
