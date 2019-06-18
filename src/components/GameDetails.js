@@ -22,7 +22,7 @@ class GameDetails extends Component {
         <Modal.Content image>
           <Image
             wrapped
-            size="medium"
+            size="large"
             src={this.props.game.background_image}
             alt={this.props.game.slug}
           />
