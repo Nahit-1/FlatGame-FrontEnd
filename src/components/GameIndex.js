@@ -5,8 +5,8 @@ import { Card } from "semantic-ui-react";
 class GameIndex extends React.Component {
 
   mapAllGames = () => {
-    if (!!this.props.searchTerm){
-      return this.props.games.map(game => {    
+    if (this.props.searchTerm){
+      return this.props.games.filter(game => {    
         if (game.name.toLowerCase().includes(this.props.searchTerm)){
           return (<GameCard key={game.id} game={game}/> )
         }

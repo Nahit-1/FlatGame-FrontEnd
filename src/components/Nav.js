@@ -15,7 +15,7 @@ const Nav = (props) => {
           <RatingFilter handleRatingFilter={props.handleRatingFilter}/>
         </Menu.Item>
         <Menu.Item >
-          <GenreFilter handleFilter={props.handleFilter}/>
+          <GenreFilter handleGenreFilter={props.handleGenreFilter}/>
         </Menu.Item>
         <Menu.Item position="right">
           <Search handleSearch={props.handleSearch} search={props.search}/>
