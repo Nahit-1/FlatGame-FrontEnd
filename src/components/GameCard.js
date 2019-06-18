@@ -8,7 +8,7 @@ class GameCard extends React.Component {
 
     return (
       <Card>
-        <div className="text-center">
+        <div className="text-center" onClick={() => this.props.selectGame(game)}>
           <h1> {game.name}</h1>
           <img width={290} src={game.background_image} alt={game.slug} title={game.slug} />
           <p>Rating: {game.metacritic ? game.metacritic : 'No Rating'}</p>

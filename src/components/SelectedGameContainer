@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Feedback from './Feedback';
+import Feedback from './FeedbackContainer';
 
-class SelectedGameContaineer extends Component {
+class SelectedGameContainer extends Component {
 
     state = {
         // ????

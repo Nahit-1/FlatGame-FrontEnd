@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import GameIndex from './components/GameIndex'
 import Nav from './components/Nav';
+import GameDetails from './components/GameDetails';
 import Adapter from './Adapter';
 
 const URL = 'http://localhost:3001'
@@ -13,7 +14,7 @@ class App extends React.Component {
     games: [],
     searchTerm: "",
     filterByRating: 0,
-    selectedGame: "",
+    selectedGame: null,
   };
 
   getAllGames = () =>
@@ -34,11 +35,15 @@ class App extends React.Component {
   }
 
   selectGame = (game) => {
-    Adapter.getGameFeedbacks(game.id) // or feedback id?!?!
-    .then((feedbacks) => this.setState({
-      selectedGame: game,
-      feedbacks
-    }))
+    this.setState({
+      selectedGame: game
+    })
+  }
+
+  deselectGame = () => {
+    this.setState({
+      selectedGame: null
+    })
   }
 
   displayGames = () => {
@@ -60,7 +65,8 @@ class App extends React.Component {
       <br />
       <br />
       <Nav handleFilter={this.handleFilter} handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}/>
-      <GameIndex games={this.displayGames()} searchTerm={this.state.searchTerm}/>
+      { this.state.selectedGame && <GameDetails game={this.state.selectedGame} deselectGame={ this.deselectGame } /> }
+      <GameIndex games={this.displayGames()} searchTerm={this.state.searchTerm} selectGame={ this.selectGame }/>
       <br />
       <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
     </div>

@@ -8,11 +8,11 @@ class GameIndex extends React.Component {
     if (!!this.props.searchTerm){
       return this.props.games.map(game => {    
         if (game.name.toLowerCase().includes(this.props.searchTerm)){
-          return (<GameCard key={game.id} game={game}/> )
+          return (<GameCard key={game.id} game={game} selectGame={this.props.selectGame}/> )
         }
       })
     }
-    return this.props.games.map( game => <GameCard key={game.id} game={game}/>)
+    return this.props.games.map( game => <GameCard key={game.id} game={game} selectGame={this.props.selectGame}/>)
   }
 
 
