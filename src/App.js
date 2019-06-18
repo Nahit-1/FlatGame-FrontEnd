@@ -47,7 +47,6 @@ class App extends React.Component {
   };
 
   filterGamesByGenre = collection => {
-    // debugger;
     if (this.state.filterByGenre) {
       return collection.filter(game => {
         return game.genre.toLowerCase() === this.state.filterByGenre;
@@ -65,18 +64,6 @@ class App extends React.Component {
         return true;
       }
     });
-    // if (this.state.searchTerm) {
-    //   // debugger;
-    //   return this.state.games.filter(game => {
-    //     if (game.name.toLowerCase().includes(this.state.searchTerm)) {
-    //       return <GameCard key={game.id} game={game} />;
-    //     }
-    //   });
-    // } else {
-    //   return this.state.games.map(game => (
-    //     <GameCard key={game.id} game={game} />
-    //   ));
-    // }
   };
 
   applyAllFiltersToGames = collection => {
