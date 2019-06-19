@@ -6,7 +6,7 @@ class GameCard extends React.Component {
     const { game } = this.props;
 
     return (
-      <Card className="link">
+      <Card className="link" style={{backgroundColor:"#CAE4DB"}}>
         <Card.Content onClick={() => this.props.selectGame(game)}>
           <Card.Header> {game.name} </Card.Header>
         </Card.Content>
