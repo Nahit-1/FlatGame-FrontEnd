@@ -6,11 +6,12 @@ class GameCard extends React.Component {
     const { game } = this.props;
 
     return (
-      <Card>
-        <Card.Content>
+      <Card className="link">
+        <Card.Content onClick={() => this.props.selectGame(game)}>
           <Card.Header> {game.name} </Card.Header>
         </Card.Content>
         <Image
+          onClick={() => this.props.selectGame(game)}
           src={game.background_image}
           alt={game.slug}
           title={game.slug}

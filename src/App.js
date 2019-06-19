@@ -3,9 +3,6 @@ import "./App.css";
 import GameIndex from "./components/GameIndex";
 import Nav from "./components/Nav";
 import GameDetails from "./components/GameDetails";
-// import Adapter from './Adapter';
-
-import MyCard from "./components/MyCard";
 
 const URL = "http://localhost:3001";
 const gamesURL = URL + "/games";
@@ -113,7 +110,6 @@ class App extends React.Component {
           games={this.applyAllFiltersToGames(this.state.games)}
           selectGame={this.selectGame}
         />
-        <MyCard />
         <br />
         <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
       </div>
