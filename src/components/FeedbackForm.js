@@ -1,8 +1,12 @@
 import React from 'react';
 import { Form } from "semantic-ui-react";
 import Adapter from "../Adapter";
+import { thisTypeAnnotation } from '@babel/types';
 
 class FeedbackForm extends React.Component {
+
+    
+
     render() {
         return (
 
@@ -18,6 +22,7 @@ class FeedbackForm extends React.Component {
     processForm = (e) => {
         e.preventDefault()
         Adapter.newFeedback(e.target.feedback.value, this.props.game.id, 61)
+            .then(feedback => this.props.addFeedback(feedback))
     }
 
 
