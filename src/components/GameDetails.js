@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Image, Modal, } from "semantic-ui-react";
 
 import Adapter from "../Adapter";
 import FeedbackContainer from "./FeedbackContainer";
 import App from "../App";
+import FeedbackForm from "./FeedbackForm"
 
 class GameDetails extends Component {
   state = {
@@ -29,7 +30,7 @@ class GameDetails extends Component {
           <Modal.Description>
             <Header>Feedback:</Header>
             <FeedbackContainer feedbacks = { this.state.feedbacks } />
-            {/* <FeedbackForm /> */}
+            <FeedbackForm />
           </Modal.Description>
         </Modal.Content>
       </Modal>
