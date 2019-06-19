@@ -23,6 +23,7 @@ class FeedbackForm extends React.Component {
         e.preventDefault()
         Adapter.newFeedback(e.target.feedback.value, this.props.game.id, 61)
             .then(feedback => this.props.addFeedback(feedback))
+            .then(e.target.feedback.value = '')
     }
 
 
