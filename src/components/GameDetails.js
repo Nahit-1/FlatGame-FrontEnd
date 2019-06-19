@@ -1,19 +1,26 @@
 import React, { Component } from "react";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Image, Modal, } from "semantic-ui-react";
 
 import Adapter from "../Adapter";
 import FeedbackContainer from "./FeedbackContainer";
 import App from "../App";
+import FeedbackForm from "./FeedbackForm"
 
 class GameDetails extends Component {
   state = {
-    feedbacks: []
+    feedbacks: [],
+  }
+
+  addFeedback = (feedback) => {
+      this.setState({feedbacks: [...this.state.feedbacks, feedback]})
   }
 
   componentDidMount() {
     Adapter.getGameFeedbacks(this.props.game.id)
     .then(feedbacks => this.setState({ feedbacks }))
   }
+
+
 
   render() {
     return (
@@ -28,8 +35,9 @@ class GameDetails extends Component {
           />
           <Modal.Description>
             <Header>Feedback:</Header>
+            <hr />
             <FeedbackContainer feedbacks = { this.state.feedbacks } />
-            {/* <FeedbackForm /> */}
+            <FeedbackForm addFeedback={this.addFeedback} game={this.props.game} game_id={this.props.game_id} feedbacks={this.state.feedbacks}/>
           </Modal.Description>
         </Modal.Content>
       </Modal>
