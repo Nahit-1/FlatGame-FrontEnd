@@ -1,11 +1,8 @@
-
-import React from 'react';
-import './App.css';
-import GameIndex from './components/GameIndex'
-import Nav from './components/Nav';
-import GameDetails from './components/GameDetails';
-import Adapter from './Adapter';
-
+import React from "react";
+import "./App.css";
+import GameIndex from "./components/GameIndex";
+import Nav from "./components/Nav";
+import GameDetails from "./components/GameDetails";
 
 const URL = "http://localhost:3001";
 const gamesURL = URL + "/games";
@@ -35,18 +32,17 @@ class App extends React.Component {
       : this.setState({ filterByRating: +e.target.value });
   };
 
-
-  selectGame = (game) => {
+  selectGame = game => {
     this.setState({
       selectedGame: game
-    })
-  }
+    });
+  };
 
   deselectGame = () => {
     this.setState({
       selectedGame: null
-    })
-  }
+    });
+  };
 
   handleGenreFilter = e => {
     e.target.value === "No Filter"
@@ -59,7 +55,6 @@ class App extends React.Component {
       return collection.filter(game => {
         return game.metacritic >= this.state.filterByRating;
       });
-
     } else {
       return collection;
     }
@@ -93,7 +88,6 @@ class App extends React.Component {
 
   render() {
     return (
-
       <div>
         <br />
         <br />
@@ -106,16 +100,21 @@ class App extends React.Component {
           handleSearch={this.handleSearch}
           searchTerm={this.state.searchTerm}
         />
-         { this.state.selectedGame && <GameDetails game={this.state.selectedGame} deselectGame={ this.deselectGame } /> }
+        {this.state.selectedGame && (
+          <GameDetails
+            game={this.state.selectedGame}
+            deselectGame={this.deselectGame}
+          />
+        )}
         <GameIndex
-          games={this.applyAllFiltersToGames(this.state.games)} selectGame={ this.selectGame }
+          games={this.applyAllFiltersToGames(this.state.games)}
+          selectGame={this.selectGame}
         />
         <br />
         <p> Made by Danny Wakeling and Nahit Abu-Nijaila </p>
       </div>
     );
   }
-
 }
 
 export default App;
