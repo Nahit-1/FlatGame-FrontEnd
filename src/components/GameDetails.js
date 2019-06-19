@@ -8,13 +8,18 @@ import FeedbackForm from "./FeedbackForm"
 
 class GameDetails extends Component {
   state = {
-    feedbacks: []
+    feedbacks: [],
+    // userInput: ""
   }
 
   componentDidMount() {
     Adapter.getGameFeedbacks(this.props.game.id)
     .then(feedbacks => this.setState({ feedbacks }))
   }
+
+//   inputChangedHandler = (event) => {
+//       this.setState({userInput: event.target.value})
+//   }
 
   render() {
     return (
@@ -29,8 +34,9 @@ class GameDetails extends Component {
           />
           <Modal.Description>
             <Header>Feedback:</Header>
+            <hr />
             <FeedbackContainer feedbacks = { this.state.feedbacks } />
-            <FeedbackForm />
+            <FeedbackForm game={this.props.game} game_id={this.props.game_id} feedbacks={this.state.feedbacks}/>
           </Modal.Description>
         </Modal.Content>
       </Modal>
