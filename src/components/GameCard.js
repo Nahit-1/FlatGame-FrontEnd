@@ -6,7 +6,7 @@ class GameCard extends React.Component {
     const { game } = this.props;
 
     return (
-      <Card className="link">
+      <Card className="link" style={{backgroundColor:"#CAE4DB"}}>
         <Card.Content onClick={() => this.props.selectGame(game)}>
           <Card.Header> {game.name} </Card.Header>
         </Card.Content>
@@ -22,6 +22,9 @@ class GameCard extends React.Component {
           <Card.Description>
             Rating: {game.metacritic ? game.metacritic : "No Rating"}
           </Card.Description>
+          <Card.Description>
+            {/* Comments: {game.metacritic ? game.metacritic : "No Rating"} */}
+          </Card.Description>
           <Card.Description>Genre: {game.genre}</Card.Description>
           <Rating className="star" maxRating="5" size="huge" />
         </Card.Content>
@@ -29,25 +32,5 @@ class GameCard extends React.Component {
     );
   }
 }
-
-// <Card className="ui card link centered">
-//         <div
-//           className="text-center"
-//           onClick={() => this.props.selectGame(game)}
-//         >
-//           <Card.Header> {game.name} </Card.Header>
-//           <Image
-//             src={game.background_image}
-//             alt={game.slug}
-//             title={game.slug}
-//             size="medium"
-//           />
-//           <Card.Content>
-//             <p>Rating: {game.metacritic ? game.metacritic : "No Rating"}</p>
-//             <p>Genre: {game.genre}</p>
-//             <Rating className="star" maxRating="5" size="huge" />
-//           </Card.Content>
-//         </div>
-//       </Card>
 
 export default GameCard;

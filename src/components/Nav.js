@@ -7,7 +7,7 @@ import { Menu } from 'semantic-ui-react';
 const Nav = (props) => {
     return (
         <div>
-        <Menu className="fixed-top">
+        <Menu className="fixed-top" style={{backgroundColor:"#7A9D96"}}>
         <Menu.Item>
           <h1>FlatGame</h1>
         </Menu.Item>
