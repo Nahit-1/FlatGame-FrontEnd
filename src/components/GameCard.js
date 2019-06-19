@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
+import { Rating } from "semantic-ui-react";
 
 class GameCard extends React.Component {
 
@@ -7,13 +8,14 @@ class GameCard extends React.Component {
     const { game } = this.props;
 
     return (
-      <Card>
+      <Card className="ui card link centered">
         <div className="text-center" onClick={() => this.props.selectGame(game)}>
-          <h1> {game.name}</h1>
+          <h1 className="header"> {game.name}</h1>
           <img width={290} src={game.background_image} alt={game.slug} title={game.slug} />
           <p>Rating: {game.metacritic ? game.metacritic : 'No Rating'}</p>
           <p>Genre: {game.genre}</p>
         </div>
+          <Rating className="star" maxRating="5" size="huge"/>
       </Card>
     );
   }
