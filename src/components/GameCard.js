@@ -23,7 +23,7 @@ class GameCard extends React.Component {
             Rating: {game.metacritic ? game.metacritic : "No Rating"}
           </Card.Description>
           <Card.Description>
-            Comments: {game.metacritic ? game.metacritic : "No Rating"}
+            {/* Comments: {game.metacritic ? game.metacritic : "No Rating"} */}
           </Card.Description>
           <Card.Description>Genre: {game.genre}</Card.Description>
           <Rating className="star" maxRating="5" size="huge" />
