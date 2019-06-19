@@ -26,7 +26,7 @@ class GameDetails extends Component {
     return (
       <Modal open={this.props.game} onClose={ this.props.deselectGame }>
         <Modal.Header>{this.props.game.name}</Modal.Header>
-        <Modal.Content image>
+        <Modal.Content image style={{backgroundColor:"#CAE4DB"}}>
           <Image
             wrapped
             size="large"
